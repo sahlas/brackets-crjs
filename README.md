@@ -1,4 +1,4 @@
-brackets-complexityReport
+brackets-crjs
 =========================
 
 A Brackets extension that enables phil booth's  complexityReport.js tool.  
