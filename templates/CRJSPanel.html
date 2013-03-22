@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>complexityRerport.js</title>
+		<style type="text/css">
+		.tooltip {
+			border-bottom: 0px dotted #000000; color: #000000; outline: none;
+			cursor:default; text-decoration: none;
+			position: relative;
+		}
+		.tooltip span {
+			margin-left: -999em;
+			position: absolute;
+		}
+		.tooltip:hover span {
+			border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+			font-family: Calibri, Tahoma, Geneva, sans-serif;
+			position: absolute; left: -20em; top: -30em; z-index: 99;
+			margin-left: 0; width: 250px;
+		}
+		.tooltip:hover em {
+			font-family: Candara, Tahoma, Geneva, sans-serif; font-size: 1.2em; font-weight: bold;
+			display: block; padding: 0.2em 0 0.6em 0;
+		}
+		.custom { padding: 0.5em 0.8em 0.8em 2em; }
+		.help { background: #9FDAEE; border: 1px solid #2BB0D7;	}
+		</style>
+	</head>
+	<body>
+		<div id="panel1" class="bottom-panel no-focus">
+           <div class="toolbar simple-toolbar-layout vert-resizable top-resizer " >
+                <div class="title" id="crjs-title" > Complexity Report </div>
+                <a href="#" id="crjs-close" class="close">&nbsp;</a>
+                <a href="#" id="crjs-help" style="text-decoration: none"  class="tooltip">
+                    Info
+                    <span class="tooltip custom help" align="left" >
+ 
+                    <em>ComplexityReport.js</em>
+                    
+                    <p>A tool for reporting code complexity metrics in JavaScript projects. Go to http://jscomplexity.org/complexity for extendend information about what complexity
+                        means in this context.  Currently the tool reports on:</p>
+                        <ul>
+                            <li>lines of code;</li>
+                            <li>cyclomatic complexity;</li>
+                            <li>Halstead metrics;</li>
+                            <li>maintainability index.</li>
+                        </ul>
+                    <p>The tool, when deployed as an automated continuous integration system, can be configured to fail when complexity metrics pass a specified threshold.  You can head off build breakage by using this extension.</p>
+                    </span>
+                </a>
+                
+               <a href="#" id="crjs-options" class="tooltip" style="text-decoration: none"  >
+                    Options
+                    <span class="tooltip custom help" align="left" >
+                        <em>ComplexityReport.js</em>
+                        <p>You can adjust the settings by modifying the ./config.js file located in the base folder of this extension.  The following options are available:</p>
+
+                        <ul>
+                        <li>
+                        <code>logicalor</code>: Boolean indicating whether operator <code>||</code>
+                        should be considered a source of cyclomatic complexity,
+                        defaults to <code>true</code>.</li>
+                        <li>
+                        <code>switchcase</code>: Boolean indicating whether <code>switch</code> statements
+                        should be considered a source of cyclomatic complexity,
+                        defaults to <code>true</code>.</li>
+                        <li>
+                        <code>forin</code>: Boolean indicating whether <code>for</code>...<code>in</code> loops
+                        should be considered a source of cyclomatic complexity,
+                        defaults to <code>false</code>.</li>
+                        <li>
+                        <code>trycatch</code>: Boolean indicating whether <code>catch</code> clauses
+                        should be considered a source of cyclomatic complexity,
+                        defaults to <code>false</code>.</li>
+                        <li>
+                        <code>newmi</code>: Boolean indicating whether the maintainability
+                        index should be rebased on a scale from 0 to 100.</li>
+                        </ul><p>The report contains properties detailing the complexity
+                        of each function from the source code.
+                        There is also
+                        a maintainability index
+                        as well as aggregate complexity metrics
+                        for the source in its entirety. <b>To learn more about the JSComplexity.org and complexityReport.js select CRJS Info</b></p>
+                    </span>
+                </a>
+            </div>
+            <div class="table-container resizable-content"></div>
+        </div>
+        <div id="panel2" class="bottom-panel vert-resizable top-resizer no-focus">
+            <div class="table-container resizable-content"></div>
+        </div>
+	</body>
+</html>
