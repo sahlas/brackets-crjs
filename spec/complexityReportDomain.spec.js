@@ -31,7 +31,7 @@ indent: 4, maxerr: 50 */
 var CRJSDomain  = require("../node/ComplexityReportDomain.js");
 var fs          = require("fs");
 
-describe("Asynchronous ComplexityReportDomain specs", function() {
+describe("Asynchronous ComplexityReportDomain specs with default options", function() {
   var value, flag, _result;
 
   it("should return a 'report' from complexityReport.js", function() {
@@ -61,10 +61,49 @@ describe("Asynchronous ComplexityReportDomain specs", function() {
 
     runs(function() {
         var report = _result.report;
-        expect(report.maintainability).toEqual(120.97222972331988);
+        expect(Number(report.maintainability.toFixed(2))).toEqual(120.97);
         expect(report.aggregate.complexity.sloc.physical).toEqual(343);
         expect(report.aggregate.complexity.sloc.logical).toEqual(192);
         expect(report.aggregate.complexity.cyclomatic).toEqual(31);
+    });
+  });
+});
+
+describe("Asynchronous ComplexityReportDomain specs with non-default options", function() {
+  var value, flag, _result;
+  var options = {"logicalor": false, "switchcase":false , "forin": true, "trycatch": true}
+
+  it("should return a 'report' from complexityReport.js", function() {
+
+    runs(function() {
+      flag = false;
+      value = 0;
+      _result = "";
+
+        
+      setTimeout(function() {
+        flag = true;
+      }, 500);
+    });
+
+      waitsFor(function() {
+        fs.readFile('00/ForTesting.js','utf8', function (err, data) {
+            if(data) {
+                _result = CRJSDomain.cmdGetComplexityReport(data, options);
+            }
+            if (err) {
+              throw err;
+            } 
+        });
+      return flag;
+    }, "The result should be a new report from calling into the ComplexityReportDomain.cmdGetComplexityReport method", 750);
+
+    runs(function() {
+        var report = _result.report;
+        expect(Number(report.maintainability.toFixed(2))).toEqual(120.98);
+        expect(report.aggregate.complexity.sloc.physical).toEqual(343);
+        expect(report.aggregate.complexity.sloc.logical).toEqual(192);
+        expect(report.aggregate.complexity.cyclomatic).toEqual(29);
     });
   });
 });
