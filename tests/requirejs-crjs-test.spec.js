@@ -1,4 +1,0 @@
-require(['crjs.spec'], function(){
-      
-   
-});

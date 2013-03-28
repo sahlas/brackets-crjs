@@ -23,9 +23,10 @@
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4,
 maxerr: 50, node: true */
-/*global */
+/*global  */
 
 (function () {
+    
     "use strict";
     
     var cr = require('./node_modules/complexity-report/src/complexityReport.js');
@@ -36,9 +37,9 @@ maxerr: 50, node: true */
      * @return {{report: string}} The returned report is an object that 
      * contains properties detailing the complexity of each function from the source code.
      */
+
     function cmdGetComplexityReport(source, options) {
-        var report;
-        report = cr.run(source, options);
+        var report = report = cr.run(source, options);
         return {report: report};
     }
     
@@ -46,11 +47,11 @@ maxerr: 50, node: true */
      * Initializes the crDomain domain with several test commands.
      * @param {DomainManager} DomainManager The DomainManager for the server
      */
-    function init(DomainManager) {
-        if (!DomainManager.hasDomain("crDomain")) {
-            DomainManager.registerDomain("crDomain", {major: 0, minor: 1});
+    function init(domainManager) {
+        if (!domainManager.hasDomain("crDomain")) {
+            domainManager.registerDomain("crDomain", {major: 0, minor: 1});
         }
-        DomainManager.registerCommand(
+        domainManager.registerCommand(
             "crDomain",
             "getComplexityReport", 
             cmdGetComplexityReport, 
@@ -62,6 +63,10 @@ maxerr: 50, node: true */
                 description: "The returned report is an object that contains properties detailing the complexity of each function from the source code."}]
         );
     }
+    // used in unit tests
+    exports.cmdGetComplexityReport = cmdGetComplexityReport;
+    
+    //used to load domain
     exports.init = init;
     
-}());
+    }());

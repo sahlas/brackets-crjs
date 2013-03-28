@@ -42,7 +42,7 @@ define(function (require, exports, module) {
         moduleDir               = FileUtils.getNativeModuleDirectoryPath(module),
         configFile              = new NativeFileSystem.FileEntry(moduleDir + '/config.js'),
         config                  = { options: {}, globals: {} },
-        report                  = null, 
+        report                  = "",
         _enabled                = false,
         TOGGLE_REPORT           = "quality.metrics.ComplexityReport",
         content                 = require("text!templates/CRJSPanel.html");
@@ -119,7 +119,7 @@ define(function (require, exports, module) {
             });
             return loadPromise;
         }
-
+        function callback (err, data) {};
         function getComplexityReport() {
             var reportPromise = nodeConnection.domains.crDomain.getComplexityReport(text, config.options);
             reportPromise.fail(function (err) {
@@ -294,7 +294,5 @@ define(function (require, exports, module) {
 
             });
     }
-    
-    exports.init = init;
    
 });

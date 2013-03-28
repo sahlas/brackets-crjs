@@ -26,3 +26,4 @@ Let me know if you have any suggestions or issues.  Contact me at: bsahlas@adobe
 ## Change Log
 * 3/8/13 - updates and refactoring in main.js and node/ComplexityReportDomain.js 
 * 3/13/13 - added help documentation and polished up the report display and condensed README.md
+* 3/22/13 - moved to new repository brackets-crjs

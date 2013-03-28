@@ -1,0 +1,37 @@
+{
+  "name": "brackets-crjs",
+  "version": "1.0.0",
+  "description": "A Brackets extension that enables phil booth's complexityReport.js tool",
+  "main": "src/main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sahlas/brackets-crjs.git"
+  },
+  "keywords": [
+    "cyclical",
+    "complexity",
+    "maintainability",
+    "index",
+    "halstead"
+  ],
+  "author": "Bill Sahlas",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "035247f3dc9a018570365cdccf22e871e100bfe6",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.0",
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt-contrib-jasmine": "~0.4.0",
+    "q": "~0.9.0",
+    "phantomjs": "~1.8.2-2",
+    "grunt-template-jasmine-requirejs": "~0.1.0"
+  }
+}
